@@ -1,0 +1,28 @@
+import tkinter as tk
+from PageAddContact import PageAddContact
+
+
+class HomePage(tk.Frame):
+    def __init__(self, master):
+        super().__init__(master)
+
+        #frame on the top
+        self.rowbtn = tk.Frame(self)
+        self.rowbtn.pack(side="top",padx=10, fill="x", pady=10) 
+        #btn on the top-right
+        self.addbtn = tk.Button(self.rowbtn, text="+", bg="pink")
+        self.addbtn.pack(side="right", ipadx=10, ipady=10)
+        self.addbtn.bind("<Button-1>", self.BtnAddContact)
+
+        self.input_text = tk.StringVar()
+        self.ResearchBar = tk.Entry(self, textvariable=self.input_text, font="arial", justify="right", bg="lightblue")
+        self.ResearchBar.pack(fill=tk.BOTH,ipadx=20, ipady=20, pady=10)
+
+
+    def BtnAddContact(self, event):
+            self.master.switch_frame(PageAddContact)
+
+        
+
+
+       
