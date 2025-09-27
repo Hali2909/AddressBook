@@ -1,6 +1,6 @@
 import tkinter as tk
-
 from home_page import HomePage
+from PageAddContact import PageAddContact
 
 
 class App(tk.Tk):
@@ -11,13 +11,20 @@ class App(tk.Tk):
         self.geometry("600x600")
         self.current_frame = None
 
-        self.switch_frame(HomePage)
+        # show the first page (HomePage) by index
+        self.switch_frame(0)
 
 
-    def  switch_frame(self, frame_class, *args):
+    def switch_frame(self, index, *args):
+        pages_dict = {0: HomePage, 1: PageAddContact}
         if self.current_frame is not None:
             self.current_frame.destroy()
-        self.current_frame = frame_class(self, *args)
+
+        page_class = pages_dict.get(index)
+        if page_class is None:
+            raise ValueError(f"No page found for index: {index}")
+
+        self.current_frame = page_class(self, *args)
         self.current_frame.pack(fill="both", expand=True)
 
 

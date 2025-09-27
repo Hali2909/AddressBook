@@ -1,11 +1,10 @@
 import tkinter as tk
-from PageAddContact import PageAddContact
 
 
 class HomePage(tk.Frame):
     def __init__(self, master):
         super().__init__(master)
-
+        self.master = master
         #frame on the top
         self.rowbtn = tk.Frame(self)
         self.rowbtn.pack(side="top",padx=10, fill="x", pady=10) 
@@ -20,7 +19,7 @@ class HomePage(tk.Frame):
 
 
     def BtnAddContact(self, event):
-            self.master.switch_frame(PageAddContact)
+            self.master.switch_frame(1)
 
         
 
