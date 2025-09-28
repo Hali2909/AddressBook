@@ -21,7 +21,13 @@ class HomePage(tk.Frame):
     def BtnAddContact(self, event):
             self.master.switch_frame(1)
 
-        
+    def VisualizeContact(self):
+         self.ContactList = self.master.ListOfContact()
+         for nome, cognome in self.ContactList:
+              full_name = f"{nome} {cognome}"
+              self.ContactNamebtn = tk.Button(self,text=full_name)
+              self.ContactNamebtn.pack(side="bottom",padx=10, fill="x", pady=10)               
+
 
 
        

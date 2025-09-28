@@ -1,16 +1,17 @@
 import tkinter as tk
 from home_page import HomePage
 from PageAddContact import PageAddContact
+from db_manager import DbManager
 
 
 class App(tk.Tk):
     
-    def __init__(self):
+    def __init__(self,):
         super().__init__()
         self.title("AddressBook")
         self.geometry("600x600")
         self.current_frame = None
-
+        self.db = DbManager()
         # show the first page (HomePage) by index
         self.switch_frame(0)
 
@@ -26,6 +27,16 @@ class App(tk.Tk):
 
         self.current_frame = page_class(self, *args)
         self.current_frame.pack(fill="both", expand=True)
+
+    def InsertContact(self, nome, cognome, telefono):
+        self.db.InsertContact(nome, cognome, telefono)
+
+    def DeleteContact(self, nome, cognome, telefono):
+        self.db.DeleteContact(nome, cognome, telefono)
+
+    def ListOfContact(self):
+        self.NameAndSurname = self.db.ListOfContact()
+        return self.NameAndSurname
 
 
 

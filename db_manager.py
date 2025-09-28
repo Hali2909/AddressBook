@@ -1,6 +1,5 @@
 import sqlite3
 
-
 class DbManager():
     def __init__(self):
         self.cx = sqlite3.connect("AddressBook.db")
@@ -15,4 +14,10 @@ class DbManager():
         self.cu.execute("DELETE FROM Contact Where nome= ? AND cognome = ? AND telefono = ?", (nome, cognome, telefono))
         self.cx.commit()
 
-    
+    def ListOfContact(self):
+        self.cu.execute("SELECT nome, cognome FROM Contact")
+        self.cx.commit()
+        results = self.cu.fetchall()
+        return results
+
+                        

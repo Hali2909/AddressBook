@@ -1,12 +1,9 @@
 import tkinter as tk
-from db_manager import DbManager
-
 
 
 class PageAddContact(tk.Frame):
     def __init__(self, master):
         super().__init__(master)
-        self.db = DbManager()
         self.master = master
         self.FrameLabels = tk.Frame(self)
         self.FrameLabels.pack(pady=20)
@@ -38,9 +35,10 @@ class PageAddContact(tk.Frame):
         cognome = self.SurnameEntry.get()
         telefono = self.NumberEntry.get()
 
-        self.db.InsertContact(nome, cognome, telefono)
+        self.master.InsertContact(nome, cognome, telefono)
         self.NameEntry.delete(0, tk.END)
         self.SurnameEntry.delete(0, tk.END)
         self.NumberEntry.delete(0, tk.END)
         print("Contatto salvato con successo!")
         self.master.switch_frame(0)
+       
