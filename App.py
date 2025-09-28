@@ -30,6 +30,7 @@ class App(tk.Tk):
 
     def InsertContact(self, nome, cognome, telefono):
         self.db.InsertContact(nome, cognome, telefono)
+        self.ListOfContact()
 
     def DeleteContact(self, nome, cognome, telefono):
         self.db.DeleteContact(nome, cognome, telefono)
