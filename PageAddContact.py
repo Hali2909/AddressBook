@@ -5,8 +5,9 @@ class PageAddContact(tk.Frame):
     def __init__(self, master):
         super().__init__(master)
         self.master = master
-        self.FrameLabels = tk.Frame(self)
-        self.FrameLabels.pack(pady=20)
+        self.configure(bg="#fffaf0")
+        self.FrameLabels = tk.Frame(self, bg="#fffaf0")
+        self.FrameLabels.pack(pady=30)
         #Name
         self.NameLabel = tk.Label(self.FrameLabels, text="Name", fg="black")
         self.NameLabel.grid(row=0, column=0, padx=10, pady=5)
@@ -29,6 +30,8 @@ class PageAddContact(tk.Frame):
         self.ButtonSave = tk.Button(self, text="Save", bg="red", fg="white")
         self.ButtonSave.pack(fill="both")
         self.ButtonSave.bind("<Button-1>", self.SaveContact)
+    
+
 
         #Button Back 
         self.ButtonBack = tk.Button(self,text="Back", bg="red", fg="white")

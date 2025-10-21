@@ -14,8 +14,13 @@ class DbManager():
         self.cu.execute("DELETE FROM Contact Where nome= ? AND cognome = ? AND telefono = ?", (nome, cognome, telefono))
         self.cx.commit()
 
+    def ModifyContact(self, nome, cognome, telefono, old_name, old_surname, old_number):
+        self.cu.execute("""UPDATE Contact SET nome = ?, cognome = ?, telefono = ?
+                        where nome = ? AND cognome = ? AND telefono = ?""", (nome, cognome, telefono, old_name, old_surname, old_number))
+        self.cx.commit()     
+
     def ListOfContact(self):
-        self.cu.execute("SELECT nome, cognome FROM Contact")
+        self.cu.execute("SELECT nome, cognome, telefono FROM Contact")
         self.cx.commit()
         results = self.cu.fetchall()
         return results

@@ -34,11 +34,16 @@ class App(tk.Tk):
 
     def DeleteContact(self, nome, cognome, telefono):
         self.db.DeleteContact(nome, cognome, telefono)
+        self.switch_frame(0)
     
+    def ModifyContact(self, nome, cognome, telefono, old_name, old_surname, old_number):
+        self.db.ModifyContact( nome, cognome, telefono, old_name, old_surname, old_number)
+        
+
 
     def ListOfContact(self):
-        self.NameAndSurname = self.db.ListOfContact()
-        return self.NameAndSurname
+        self.NameAndSurnameandNumber = self.db.ListOfContact()
+        return self.NameAndSurnameandNumber
 
 
 
