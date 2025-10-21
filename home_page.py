@@ -41,9 +41,15 @@ class HomePage(tk.Frame):
          for nome, cognome in self.ContactList:
               full_name = f"{nome} {cognome}"
               btn = tk.Button(self.Contacts_Frame,text=full_name)
+              btn.bind("<Button-1>", self.CallContactDetails)
               btn.pack(padx=40, fill="x", pady=10) 
               self.ContactButtonList.append(btn)              
-
-
+              
+    
+    def CallContactDetails(self, event):
+         getNameSurname = event.widget.cget("text")
+         name, surname = getNameSurname.split(" ",1)
+         self.master.switch_frame(2, name, surname)
+    
 
        

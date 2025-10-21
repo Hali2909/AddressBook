@@ -30,6 +30,17 @@ class PageAddContact(tk.Frame):
         self.ButtonSave.pack(fill="both")
         self.ButtonSave.bind("<Button-1>", self.SaveContact)
 
+        #Button Back 
+        self.ButtonBack = tk.Button(self,text="Back", bg="red", fg="white")
+        self.ButtonBack.pack(fill="both")
+        self.ButtonBack.bind("<Button-1>", self.BackPage)
+
+
+    def BackPage(self, event=None):
+         self.master.switch_frame(0)
+
+    
+
     def SaveContact(self, event=None):
         nome = self.NameEntry.get()
         cognome = self.SurnameEntry.get()

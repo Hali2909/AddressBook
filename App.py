@@ -2,7 +2,7 @@ import tkinter as tk
 from home_page import HomePage
 from PageAddContact import PageAddContact
 from db_manager import DbManager
-
+from ContactDetails import ContactDetails
 
 class App(tk.Tk):
     
@@ -17,7 +17,7 @@ class App(tk.Tk):
 
 
     def switch_frame(self, index, *args):
-        pages_dict = {0: HomePage, 1: PageAddContact}
+        pages_dict = {0: HomePage, 1: PageAddContact, 2: ContactDetails}
         if self.current_frame is not None:
             self.current_frame.destroy()
 
@@ -34,6 +34,7 @@ class App(tk.Tk):
 
     def DeleteContact(self, nome, cognome, telefono):
         self.db.DeleteContact(nome, cognome, telefono)
+    
 
     def ListOfContact(self):
         self.NameAndSurname = self.db.ListOfContact()
