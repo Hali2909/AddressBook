@@ -14,6 +14,10 @@ class HomePage(tk.Frame):
         self.addbtn = tk.Button(self.rowbtn, text="+", bg="#ff69b4", fg ="white", font=("Arial",16, "bold"), width=2, heigh=1, relief="flat", bd=0)
         self.addbtn.pack(side="right", ipadx=10, ipady=10)
         self.addbtn.bind("<Button-1>", self.BtnAddContact)
+        #labeltitle on the left
+        self.title_label = tk.Label(self.rowbtn, text="ADDRESS BOOK", bg="#fffaf0", fg="#880e4f", font=("Arial", 16, "bold"))
+        self.title_label.pack(side="left", padx=10)
+
 
         #ResearchBar
         self.input_text = tk.StringVar()
